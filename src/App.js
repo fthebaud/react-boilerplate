@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+
 import logo from './logo.svg';
+
 import './App.css';
 
-import TestStyling from './components/test-styling/TestStyling.jsx';
 
-class App extends Component {
+import TestStyling from './components/test-styling/TestStyling.jsx';
+import TestImport from './components/test-import/TestImport.jsx';
+
+class App extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div className="App">
@@ -16,6 +20,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <TestStyling />
+        <TestImport />
       </div>
     );
   }
