@@ -138,7 +138,7 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
-          // Process JS with Babel.
+          // Process JS with Babel. (using the "react-app" presets, cf package.json)
           {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
