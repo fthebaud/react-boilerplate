@@ -7,6 +7,7 @@ import './App.css';
 
 import TestStyling from './components/test-styling/TestStyling.jsx';
 import TestImport from './components/test-import/TestImport.jsx';
+import TestFragments from './components/test-fragments/TestFragments.jsx';
 
 class App extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -21,6 +22,7 @@ class App extends Component { // eslint-disable-line react/prefer-stateless-func
         </p>
         <TestStyling />
         <TestImport />
+        <TestFragments />
       </div>
     );
   }
