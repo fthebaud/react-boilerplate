@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   // root of the eslint configuration
   root: true,
@@ -36,7 +38,12 @@ module.exports = {
   settings: {
     react: {
       version: "16.3.0"
-    }
+    },
+    'import/resolver': {
+      webpack : {
+        config: path.join(__dirname, '/config/webpack.config.dev.js')
+      }
+    },
   },
 
   rules: {
