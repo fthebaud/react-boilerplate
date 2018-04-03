@@ -1,9 +1,7 @@
 import React from 'react';
 
-
-// https://github.com/benmosher/eslint-plugin-import/issues/496
 import DummyTwo from 'components/common/dummy-two/DummyTwo.jsx';
-import something from 'components/common/Truc';
+import something from 'components/common/myFile';
 
 import DummyOne from '../common/dummy-one/DummyOne.jsx';
 
@@ -14,6 +12,7 @@ import styles from './TestImport.module.scss';
 const TestImport = () => (
   <div className={styles.testImport}>
     <p>Test Import</p>
+    <p>{something}</p>
     <DummyOne />
     <SubComponent />
     <DummyTwo />
