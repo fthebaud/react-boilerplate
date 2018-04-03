@@ -2,8 +2,8 @@ import React from 'react';
 
 
 // https://github.com/benmosher/eslint-plugin-import/issues/496
-import something from 'Truc';
 import DummyTwo from 'components/common/dummy-two/DummyTwo.jsx';
+import something from 'components/common/Truc';
 
 import DummyOne from '../common/dummy-one/DummyOne.jsx';
 
