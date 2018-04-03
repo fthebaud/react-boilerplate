@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   // root of the eslint configuration
   root: true,
@@ -33,10 +35,18 @@ module.exports = {
   // Extending configurations
   extends: ['eslint:recommended', 'airbnb'],
 
+  // plugins: ['react', 'import'],
+
   settings: {
     react: {
       version: "16.3.0"
-    }
+    },
+    'import/extensions': ['.js', '.jsx'],
+    'import/resolver': {
+      webpack : {
+        config: path.join(__dirname, '/config/webpack.config.dev.js')
+      }
+    },
   },
 
   rules: {
