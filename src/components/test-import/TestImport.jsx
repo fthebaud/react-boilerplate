@@ -14,6 +14,7 @@ const TestImport = () => (
   <div className={styles.testImport}>
     <p>Test Import</p>
     <p>{something}</p>
+    <p>{somethingElse}</p>
     <DummyOne />
     <SubComponent />
     <DummyTwo />
