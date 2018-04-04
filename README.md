@@ -1,9 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) v1.1.1 and then ejected.
 
-The project was then ejected from the react scripts configuration in order to :
-- add sass support
-- add css/sass modules support (use the notation *.module.css or *.module.scss for file names)
-- use our own eslint configuration during the build process (otherwise the build script uses an embedded eslint "react-app" configuration). /!\ Any eslint error will abort the build.
+The project was ejected from the react scripts configuration in order to:
+- Add sass support
+- Add css/sass modules support (use the notation __*.module.css__ or __*.module.scss__ for file names if you want to use modules)
+- Use our own eslint custom configuration based on airbnb's during the build process (otherwise the build script uses an embedded eslint "react-app" configuration).
+- Allow imports from ```<project root>/src/``` in addition to relative imports
+- Add script lines in *package.json* to run eslint manually or to run eslint autofix.
+
+Visual Studio Code:
+- A vscode configuration file is provided (see jsconfig.json file), it allows navigation between imports and the use of decorators.
+
+Examples:
+- Examples for different styles of import are provided (see *TestImport.jsx*)
+- Examples of css/sass/css module/sass module usages are also provided (see *TestStyling.jsx*)
+
+Versions (See *package.json* and *package-lock.json*):
+- React 16.3 (Fragments are supported, see *TestFragments.jsx*)
+- Webpack 3.8.1
+- Babel (core) 6.26.0
+
+
+Babel:
+- Babel transpiler is set to use the react-app preset (see *package.json*)
+
+<br/>
+<br/>
+
+---
+
+Below is the original documentation from create-react-script (version 1.1.1)
+
+---
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
