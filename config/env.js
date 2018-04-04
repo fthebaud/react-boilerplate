@@ -8,13 +8,13 @@ const paths = require('./paths');
 delete require.cache[require.resolve('./paths')];
 
 if (!process.env.NODE_ENV) {
-	console.log('The NODE_ENV environment variable is required but was not specified, setting it to development.');
-	process.env.NODE_ENV = 'development';
+  console.log("The NODE_ENV environment variable is required but was not specified, setting it to development.\nprocess.env.NODE_ENV = 'development'");
+  process.env.NODE_ENV = 'development';
   // throw new Error(
-		//   'The NODE_ENV environment variable is required but was not specified.'
-		// );
-	}
-	const NODE_ENV = process.env.NODE_ENV;
+    //   'The NODE_ENV environment variable is required but was not specified.'
+    // );
+  }
+  const NODE_ENV = process.env.NODE_ENV;
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
 var dotenvFiles = [
