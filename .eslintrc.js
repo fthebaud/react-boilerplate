@@ -145,6 +145,7 @@ module.exports = {
 
     // es6 preferences
     'prefer-destructuring': ['off'],
+    'sort-imports': 'off',
     // 'object-shorthand': 'warn',
     // 'prefer-destructuring': ['warn', {
     //   'array': true,
@@ -166,16 +167,22 @@ module.exports = {
     'react/jsx-filename-extension': ['error', { 'extensions': ['.js', '.jsx'] }],
 
     // IMPORT
-    'import/prefer-default-export': 'off',
+    // static analysis
     'import/no-unresolved': 'error',
     'import/named': 'error',
     'import/default': 'error',
-    "import/order": ['warn', {
-      "newlines-between": "always",
-      "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
+    // helpful warnings
+    'import/export': 'warn',
+    // style guide
+    'import/first': 'error',
+    'import/no-duplicates': 'warn',
+    'import/extensions': 'off',
+    'import/order': ['warn', {
+      'newlines-between': 'always',
+      'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index']
     }],
     'import/newline-after-import': 'warn',
-    'import/extensions': 'off',
+    'import/prefer-default-export': 'off',
 
     // JSX-A11Y
     'jsx-a11y/click-events-have-key-events': 'off',

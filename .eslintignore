@@ -9,3 +9,4 @@ src/thirdparty/**
 src/registerServiceWorker.js
 src/index.js
 src/App.js
+src/App.test.js
