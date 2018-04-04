@@ -6,19 +6,22 @@ The project was ejected from the react scripts configuration in order to:
 - Use our own eslint custom configuration based on airbnb's during the build process (otherwise the build script uses an embedded eslint "react-app" configuration).
 - Allow imports from ```<project root>/src/``` in addition to relative imports
 - Add script lines in *package.json* to run eslint manually or to run eslint autofix.
+<br/>
 
 Visual Studio Code:
 - A vscode configuration file is provided (see jsconfig.json file), it allows navigation between imports and the use of decorators.
+<br/>
 
 Examples:
 - Examples for different styles of import are provided (see *TestImport.jsx*)
 - Examples of css/sass/css module/sass module usages are also provided (see *TestStyling.jsx*)
+<br/>
 
 Versions (See *package.json* and *package-lock.json*):
 - React 16.3 (Fragments are supported, see *TestFragments.jsx*)
 - Webpack 3.8.1
 - Babel (core) 6.26.0
-
+<br/>
 
 Babel:
 - Babel transpiler is set to use the react-app preset (see *package.json*)
