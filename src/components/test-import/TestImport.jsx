@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { ComponentOne } from 'lib/index.js';
 import DummyTwo from 'components/common/dummy-two/DummyTwo.jsx';
 import something from 'components/common/my-file/myFile.js';
 
@@ -18,6 +19,7 @@ const TestImport = () => (
     <DummyOne />
     <SubComponent />
     <DummyTwo />
+    <ComponentOne />
   </div>
 );
 
