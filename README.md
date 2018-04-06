@@ -18,7 +18,7 @@ Examples:
 <br/>
 
 Versions (See *package.json* and *package-lock.json*):
-- React 16.3 (Fragments are supported, see *TestFragments.jsx*)
+- React 16.3.1 (Fragments are supported, see *TestFragments.jsx*, strict mode is activate, see *App.js*)
 - Webpack 3.8.1
 - Babel (core) 6.26.0
 <br/>
