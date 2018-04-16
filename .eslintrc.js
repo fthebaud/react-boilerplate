@@ -176,7 +176,7 @@ module.exports = {
     // style guide
     'import/first': 'error',
     'import/no-duplicates': 'warn',
-    'import/extensions': 'off',
+    'import/extensions': ['warn', 'ignorePackages'],
     'import/order': ['warn', {
       'newlines-between': 'always',
       'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index']
