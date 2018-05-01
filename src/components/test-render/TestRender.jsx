@@ -3,55 +3,53 @@
 import React, { Component } from 'react';
 
 import SubTestRender from './components/SubTestRender.jsx';
+import style from './testRender.module.css';
 
 
 export default class TestRender extends Component {
-  static statique = 313;
-
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0,
-      sharedCounter: 0,
-      uselessSharedCounter: 0,
+      primitive: 0,
+      uselessPrimitive: 0, // never displayed
+      obj: { message: 'a' },
+      uselessObj: { message: 'b' }, // never displayed
     };
   }
 
   render() {
-    const { counter, sharedCounter, uselessSharedCounter } = this.state;
-    console.log('Render TestRender');
+    console.log('Render TestRender - ', new Date());
     console.log('state: ', this.state);
+    console.log('props: ', this.props);
     return (
-      <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '50px', marginBottom: '50px' }}>
+      <div className={style.container}>
         <div>
-          TEST RENDER <br />
-          counter: {counter} <br />
-          <div
-            style={{ cursor: 'pointer' }}
-            onClick={() => this.setState({ counter: this.state.counter + 1 })}
-          >
-            [Increase counter!]
-          </div>
-          sharedCounter: {sharedCounter} <br />
-          <div
-            style={{ cursor: 'pointer' }}
-            onClick={() => this.setState({ sharedCounter: this.state.sharedCounter + 1 })}
-          >
-          [Increase sharedCounter!]
-          </div>
-          uselessSharedCounter: {uselessSharedCounter} <br />
-          <div
-            style={{ cursor: 'pointer' }}
-            onClick={() => this.setState({ sharedCounter: this.state.sharedCounter + 1 })}
-          >
-          [Increase sharedCounter!]
-          </div>
+          <b>testRender state:</b> <br />
+          primitive: {this.state.primitive} <br />
+          obj.message: {this.state.obj.message} <br />
         </div>
-        <SubTestRender
-          staticValue={TestRender.statique}
-          sharedCounter={sharedCounter}
-          uselessSharedCounter={uselessSharedCounter}
-        />
+        <div className={style.buttons}>
+          <button onClick={() => this.setState({ primitive: this.state.primitive + 1 })}>
+            Change Primitive
+          </button>
+          <button onClick={() => this.setState({ uselessPrimitive: this.state.uselessPrimitive + 1 })}>
+            Change Uselesss Primitive
+          </button>
+          <button onClick={() => this.setState({ obj: { message: `${this.state.obj.message}z` } })}>
+            Change Object
+          </button>
+          <button onClick={() => this.setState({ uselessObj: { message: `${this.state.uselessObj.message}z` } })}>
+            Change Useless Object
+          </button>
+          <button onClick={() => {
+            const sameRef = this.state.obj;
+            sameRef.message = 'trololo';
+            this.setState({ obj: sameRef });
+          }}
+          >
+            Mutate Object
+          </button>
+        </div>
       </div>
     );
   }
