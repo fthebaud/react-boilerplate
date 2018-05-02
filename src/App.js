@@ -25,33 +25,35 @@ class App extends Component {
     // Context here is useless, state was sufficient. I'm using it to test the feature.
     const { Provider, Consumer } = AppContext;
     return (
-      <React.StrictMode>
-        <div className={style.container}>
-          <div className={style.header}>
-            <button onClick={() => this.setState({ selectedComponent: COMPONENT_TYPE.TEST_FRAGMENTS })}>
-              {COMPONENT_TYPE.TEST_FRAGMENTS}
-            </button>
-            <button onClick={() => this.setState({ selectedComponent: COMPONENT_TYPE.TEST_IMPORT })}>
-              {COMPONENT_TYPE.TEST_IMPORT}
-            </button>
-            <button onClick={() => this.setState({ selectedComponent: COMPONENT_TYPE.TEST_RENDER })}>
-              {COMPONENT_TYPE.TEST_RENDER}
-            </button>
-            <button onClick={() => this.setState({ selectedComponent: COMPONENT_TYPE.TEST_STYLING })}>
-              {COMPONENT_TYPE.TEST_STYLING}
-            </button>
-          </div>
-          <Provider value={this.state.selectedComponent}>
-            <div className={style.content}>
-              <Consumer>
-                {
-                  (value) => this.renderComponent(value)
-                }
-              </Consumer>
-            </div>
-          </Provider>
+      <div className={style.container}>
+        {/* Strict mode temporarly removed because it causes double render (on purpose), and it defeats the purpose of the test render module */}
+        { /* See https://reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects */ }
+        {/* <React.StrictMode> */}
+        <div className={style.header}>
+          <button onClick={() => this.setState({ selectedComponent: COMPONENT_TYPE.TEST_FRAGMENTS })}>
+            {COMPONENT_TYPE.TEST_FRAGMENTS}
+          </button>
+          <button onClick={() => this.setState({ selectedComponent: COMPONENT_TYPE.TEST_IMPORT })}>
+            {COMPONENT_TYPE.TEST_IMPORT}
+          </button>
+          <button onClick={() => this.setState({ selectedComponent: COMPONENT_TYPE.TEST_RENDER })}>
+            {COMPONENT_TYPE.TEST_RENDER}
+          </button>
+          <button onClick={() => this.setState({ selectedComponent: COMPONENT_TYPE.TEST_STYLING })}>
+            {COMPONENT_TYPE.TEST_STYLING}
+          </button>
         </div>
-      </React.StrictMode>
+        <Provider value={this.state.selectedComponent}>
+          <div className={style.content}>
+            <Consumer>
+              {
+                (value) => this.renderComponent(value)
+              }
+            </Consumer>
+          </div>
+        </Provider>
+        { /* </React.StrictMode> */ }
+      </div>
     );
   }
 }
