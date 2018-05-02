@@ -74,6 +74,8 @@ A React component get rendered:
 */
 
 /*
-A React component DOES NOT get rendered:
-- When the props change (unless the state is updated from the props)
+A React component DOES NOT get rendered When the props change (unless the state is updated from the props)
+=> Since props usually come from a parent state, the whole tree gets re-rendered anyway because of parent
+=> in the case of redux, the connect function creates a wrapper component which subscribes to the store
+   and gets force-re-rendered when there is a change in the store. see: https://gist.github.com/gaearon/1d19088790e70ac32ea636c025ba424e
 */
