@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('0 - Render APP - ', new Date());
     // Context here is useless, state was sufficient. I'm using it to test the feature.
     const { Provider, Consumer } = AppContext;
     return (

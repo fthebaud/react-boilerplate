@@ -1,8 +1,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class SubTestRender extends Component {
+  static propTypes = {
+    value: PropTypes.number.isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -10,9 +14,14 @@ export default class SubTestRender extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log('component will receive props', nextProps);
+  }
+
   render() {
     const { counter } = this.state;
-    console.log('Render SubTestRender - ', new Date());
+    const { value } = this.props;
+    console.log('2 - Render SubTestRender - ', new Date());
     console.log('state: ', this.state);
     console.log('props: ', this.props);
     return (
@@ -25,6 +34,9 @@ export default class SubTestRender extends Component {
         >
           Increase sub counter
         </button>
+        <br />
+        <b>SubTestRender props:</b> <br />
+        value: {value} <br />
       </div>
     );
   }

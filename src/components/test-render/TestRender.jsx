@@ -15,10 +15,11 @@ export default class TestRender extends Component {
       obj: { message: 'a' },
       uselessObj: { message: 'b' }, // never displayed
     };
+    this.value = 0;
   }
 
   render() {
-    console.log('Render TestRender - ', new Date());
+    console.log('1 - Render TestRender - ', new Date());
     console.log('state: ', this.state);
     console.log('props: ', this.props);
     return (
@@ -28,29 +29,51 @@ export default class TestRender extends Component {
           primitive: {this.state.primitive} <br />
           obj.message: {this.state.obj.message} <br />
         </div>
-        <div className={style.buttons}>
-          <button onClick={() => this.setState({ primitive: this.state.primitive + 1 })}>
-            Change Primitive
-          </button>
-          <button onClick={() => this.setState({ uselessPrimitive: this.state.uselessPrimitive + 1 })}>
-            Change Uselesss Primitive
-          </button>
-          <button onClick={() => this.setState({ obj: { message: `${this.state.obj.message}z` } })}>
-            Change Object
-          </button>
-          <button onClick={() => this.setState({ uselessObj: { message: `${this.state.uselessObj.message}z` } })}>
-            Change Useless Object
-          </button>
-          <button onClick={() => {
-            const sameRef = this.state.obj;
-            sameRef.message = 'trololo';
-            this.setState({ obj: sameRef });
-          }}
-          >
-            Mutate Object
-          </button>
+        <br />
+        <div>
+          <b>Modify testRender state:</b>
+          <div className={style.buttons}>
+            <button onClick={() => this.setState({ primitive: this.state.primitive + 1 })}>
+              Change Primitive
+            </button>
+            <button onClick={() => this.setState({ uselessPrimitive: this.state.uselessPrimitive + 1 })}>
+              Change Uselesss Primitive
+            </button>
+            <button onClick={() => this.setState({ obj: { message: 'zzzzz' } })}>
+              Change Object
+            </button>
+            <button onClick={() => this.setState({ uselessObj: { message: `${this.state.uselessObj.message}z` } })}>
+              Change Useless Object
+            </button>
+            <button onClick={() => {
+              this.state.obj.message = 'trololo';
+            }}
+            >
+              Mutate Object
+            </button>
+          </div>
         </div>
+        <div>
+          <b>Modify SubTestRender props:</b>
+          <div className={style.buttons}>
+            <button onClick={() => { this.value = this.value + 1; }} >
+              Change props for children comp
+            </button>
+          </div>
+        </div>
+        <SubTestRender value={this.value} />
       </div>
     );
   }
 }
+
+/*
+A React component get rendered:
+- When the state changes (even if the part of the state the changes is not used)
+- When the parent changes
+*/
+
+/*
+A React component DOES NOT get rendered:
+- When the props change (unless the state is updated from the props)
+*/
